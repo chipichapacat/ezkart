@@ -1,14 +1,13 @@
 "use client";
-
-import { Order, Product, User } from "@prisma/client";
+import prisma from "@/libs/prismadb";
+import type { Order, Product, User } from "@prisma/client";
 import { useEffect, useState } from "react";
 import Heading from "../components/Heading";
 import { formatPrice } from "@/utils/formatPrice";
 import { formatNumber } from "@/utils/formatNumber";
-
 interface SummaryProps{
     orders: Order[],
-    products: Product[],
+    products: Product[]
     users: User[]
 }
 

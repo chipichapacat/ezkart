@@ -4,10 +4,10 @@ import { categories } from "@/utils/Categories";
 import Container from "../Container";
 import Category from "./Category";
 import { usePathname, useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
 
-const Categories = () => {
-
+const CategoriesComponent = () => {
     const params = useSearchParams();
     const category = params?.get("category");
     const pathname = usePathname();
@@ -27,6 +27,12 @@ const Categories = () => {
             </Container>
         </div>
      );
+}
+
+const Categories = ()=>{
+    <Suspense fallback={<div>Loading...</div>}>
+        <CategoriesComponent/>
+    </Suspense>
 }
  
 export default Categories;

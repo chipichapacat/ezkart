@@ -35,4 +35,4 @@ const Categories = ()=>{
     </Suspense>
 }
  
-export default Categories;
+export default CategoriesComponent;

@@ -5,14 +5,16 @@ import { Raleway } from "next/font/google";
 import CartCount from "./CartCount";
 import UserMenu from "./UserMenu";
 import { getCurrentUser } from "@/actions/getCurrentUser";
-import Categories from "./Categories";
+// import Categories from "./Categories";
 import Searchbar from "./Searchbar";
+import dynamic from "next/dynamic";
 
 const redressed = Raleway({subsets:['latin'], weight:['700']})
 
 const NavBar = async () => {
 
     const currentUser =  await getCurrentUser();
+    const CategoriesComponent =dynamic(() => import('./Categories'), { ssr: false });
 
     return ( 
         <div className="sticky top-0 w-full bg-slate-200 z-30 shadow-sm">
@@ -28,7 +30,7 @@ const NavBar = async () => {
                     </div>
                 </Container>
             </div>
-            <Categories/>
+            <CategoriesComponent/>
         </div>
      );
 }

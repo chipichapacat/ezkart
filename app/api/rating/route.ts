@@ -2,7 +2,8 @@ import { getCurrentUser } from "@/actions/getCurrentUser";
 import { Review } from "@prisma/client";
 import { NextResponse } from "next/server";
 
-
+export const runtime = "nodejs"
+export const dynamic = "force-dynamic"
 
 export async function POST(request: Request){
     const currentUser = await getCurrentUser();

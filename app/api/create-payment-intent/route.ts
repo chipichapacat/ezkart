@@ -139,7 +139,7 @@ export async function POST(request: Request) {
             user: { connect: { id: currentUser.id } },
             amount: total,
             currency: "inr",
-            status: "complete",
+            status: "pending",
             deliveryStatus: "pending",
             paymentIntentId: payment_intent_id,
             products: items

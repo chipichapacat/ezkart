@@ -15,7 +15,6 @@ import toast from "react-hot-toast";
 import { getDownloadURL, getStorage, ref, uploadBytesResumable } from "firebase/storage"
 import firebaseApp from "@/libs/firebase";
 import axios from "axios";
-import { Router } from "next/router";
 import { useRouter } from "next/navigation";
 
 export type ImageType = {

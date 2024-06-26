@@ -110,7 +110,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
                     <span className="font-semibold">CATEGORY : </span> {product.category}
                 </div>
                 <div>
-                    <span className="font-semibold">CATEGORY : </span> {product.brand}
+                    <span className="font-semibold">BRAND : </span> {product.brand}
                 </div>
                 <div className={product.inStock ? "text-green-600" : "text-red-600"}>{product.inStock ? "In Stock" : "Out of Stock"}</div>
 

@@ -19,7 +19,7 @@ const ProductCard:React.FC<ProductCardProps> = ({data}) => {
                 <div className="aspect-square overflow-hidden relative w-full">
                     <Image fill className="w-full h-full object-contain" src={data.images[0].image} alt={data.name}/>
                 </div>
-                <div className="mt-4">{truncateText(data.name)}</div>
+                <div className="mt-4 text-lg font-bold">{truncateText(data.name)}</div>
                 <div>
                     <Rating value={productRating} readOnly/>
                 </div>

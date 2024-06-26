@@ -97,10 +97,12 @@
 
 import { NextResponse, NextRequest } from "next/server";
 
-export const config = {
-    runtime:"nodejs",
-    dynamic:"force-dynamic"
-}
+export const runtime = "nodejs"
+export const dynamic = "force-dynamic"
+// export const config = {
+//     runtime:"nodejs",
+//     dynamic:"force-dynamic"
+// }
 
 import Stripe from "stripe";
 import prisma from "@/libs/prismadb";

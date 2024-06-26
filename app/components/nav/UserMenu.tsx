@@ -10,6 +10,8 @@ import Backdrop from "./Backdrop";
 import { SafeUser } from "@/types";
 import { useRouter } from "next/navigation";
 
+export const runtime = "nodejs"
+export const dynamic = "force-dynamic"
 
 interface UserMenuProps {
     currentUserr: SafeUser | null | undefined
@@ -39,9 +41,9 @@ const UserMenu: React.FC<UserMenuProps> =  ({ currentUserr }) => {
                                 <Link href="/orders">
                                     <MenuItem onClick={toggleOpen}>Your Orders</MenuItem>
                                 </Link>
-                                {/* {currentUserr.role==="ADMIN" && <Link href="/admin">
+                                {currentUserr.role==="ADMIN" && <Link href="/admin">
                                     <MenuItem onClick={toggleOpen}>Admin Dashboard</MenuItem>
-                                </Link>} */}
+                                </Link>}
                                 <hr/>
                                 <MenuItem onClick={() => {
                                     toggleOpen();

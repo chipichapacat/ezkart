@@ -5,6 +5,7 @@ import ProductImage from "@/app/components/products/ProductImage";
 import SetColor from "@/app/components/products/SetColor";
 import SetQuantity from "@/app/components/products/SetQuantity";
 import { useCart } from "@/hooks/useCart";
+import { formatPrice } from "@/utils/formatPrice";
 import { Rating } from "@mui/material";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
@@ -90,6 +91,14 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
         }
     }, [cartProduct])
 
+    
+    const generateDiscount = ()=>{
+        const discount = Math.floor((Math.random() * 30) + 20);
+        return discount;
+    }
+    const disc = generateDiscount();
+    const actualPrice = Math.ceil((product.price*100)/(100-disc))
+
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <ProductImage cartProduct={cartProduct} product={product} handleColorSelect={handleColorSelect} />
@@ -99,7 +108,11 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
                     <Rating value={productRating} readOnly />
                     <div>{product.reviews.length} review{product.reviews.length !== 1 ? "s" : ""}</div>
                 </div>
-
+                <div className="flex flex-row gap-5 mt-5 items-baseline">
+                    <div className="text-xl text-slate-800 font-bold">{formatPrice(product.price)}</div>
+                    <div className="line-through">{formatPrice(actualPrice)}</div>
+                    <div className="text-lg font-bold text-green-500">{disc}% off</div>
+                </div>
                 <Horizontal />
 
                 <div className="text-justify mt-4">{product.description}</div>
@@ -113,6 +126,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
                     <span className="font-semibold">BRAND : </span> {product.brand}
                 </div>
                 <div className={product.inStock ? "text-green-600" : "text-red-600"}>{product.inStock ? "In Stock" : "Out of Stock"}</div>
+                
 
                 <Horizontal />
 

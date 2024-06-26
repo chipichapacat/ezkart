@@ -1,8 +1,10 @@
 import Container from "@/app/components/Container";
-import ManageProductsClient from "./ManageProductsClient";
 import getProducts from "@/actions/getProducts";
 import { getCurrentUser } from "@/actions/getCurrentUser";
 import NullData from "@/app/components/NullData";
+import dynamic from "next/dynamic";
+
+const ManageProductsClient = dynamic(()=>import("./ManageProductsClient"),{ssr:false})
 
 
 const ManageProducts = async() => {

@@ -2,8 +2,10 @@ import Container from "@/app/components/Container";
 import { getCurrentUser } from "@/actions/getCurrentUser";
 import NullData from "@/app/components/NullData";
 import getOrders from "@/actions/getOrders";
-import ManageOrdersClient from "./ManagrOrdersClient";
+import dynamic from "next/dynamic";
 
+
+const ManageOrdersClient = dynamic(()=>import("./ManagrOrdersClient"),{ssr:false})
 
 const ManageOrders = async() => {
 

@@ -21,7 +21,7 @@ export async function POST(request: Request){
         return review.userId===currentUser.id
     }))
 
-    if(userReview || !deliveredOrder){
+    if(userReview){
         return NextResponse.error();
     }
 
